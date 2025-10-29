@@ -1,0 +1,50 @@
+<!-- 9.2. Практическое занятие
+Упражнение 2 -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Лаба 2.2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Лаба 2.2</h2>
+  </body>
+  <div style="height: 40px;">
+    <p id="change">Lorem ipsum dolor sit amet, consectetur adipiscing elit!</p>
+  </div>
+
+  <a href="#" id="link">Поменять стиль</a>
+
+  <script>
+    function ChangeStyle() {
+      const elem = document.getElementById("change");
+      elem.style.color = "blue";
+      elem.style.fontSize = "16px";
+      elem.style.fontWeight = "bold";
+      elem.style.textDecoration = "underline";
+    }
+    
+    function ResetStyle() {
+      const elem = document.getElementById("change");
+      elem.style.color = "grey";
+      elem.style.fontSize = "12px";
+      elem.style.fontWeight = "normal";
+      elem.style.textDecoration = "none";
+    }
+
+    var link = document.getElementById("link");
+
+    link.addEventListener("mouseover", (e) => {
+      ChangeStyle();
+    });
+
+    link.addEventListener("mouseout", (e) => {
+      ResetStyle();
+    });
+
+    var link = document.getElementById("link");
+
+  </script>
+</body>
+</html>
