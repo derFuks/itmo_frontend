@@ -1,12 +1,72 @@
 // 9.1. Практическое занятие 1
-//Упражнение 1
+//Упражнение 2
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Лаба 1.2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Лаба 1.2</h2>
+  <div id="container"></div>
 
-var string1 = "Салют!";
+  <script>
+    const n = 10;
+    let html = '<table><thead><tr><th>×</th>';
+    for (let j = 1; j <= n; j++) html += `<th>${j}</th>`;
+    html += '</tr></thead><tbody>';
+
+    for (let i = 1; i <= n; i++) {
+      html += `<tr><th>${i}</th>`;
+      for (let j = 1; j <= n; j++) {
+        html += `<td>${i * j}</td>`;
+      }
+      html += '</tr>';
+    }
+    html += '</tbody></table>';
+
+    document.getElementById('container').innerHTML = html;
+  </script>
+</body>
+</html>
+
+
+
+
+<!-- var string1 = "Салют!";
 var string2 = "Все живы?";
-var resultString = string1 + " " + string2 + " ";
+var resultStr = string1 + " " + string2 + " ";
 alert(resultString);
 
 var num1 = 3.14;
 var num2 = "FF"; 
-var resultNum = num1 * num2;
-alert(resultNum);
+var result = num1 * num2;
+alert(result); -->
+
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Лаба 1.1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Лаба 1.1</h2>
+  <p>Алерты в консольке</p>
+
+  <script>
+    const string1 = "Салют!";
+    const string2 = "Все живы?";
+    const resultStr = string1 + " " + string2;
+
+    const num = 3.14;
+    const FF = "";
+    const result = num * FF;
+
+    alert("Стринги: " + resultStr);
+    alert("3.14 * FF(=255): " + result);
+  </script>
+</body>
+</html>
+
