@@ -1,0 +1,27 @@
+<!-- 9.2. Практическое занятие 1
+Упражнение 1 -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Лаба 2.1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Лаба 2.1</h2>
+  <img src="apple.png" width="300" onclick="zoom()" id="img_apple">
+
+  <script>
+    var iszoomed = false;
+
+    function zoom() {
+        if (iszoomed) {
+            document.getElementById("img_apple").width = 300;
+        } else {
+            document.getElementById("img_apple").width = 526;
+        }
+        iszoomed = !iszoomed;
+    }
+  </script>
+</body>
+</html>
