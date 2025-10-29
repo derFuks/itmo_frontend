@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Лаба 1.4 — класс NewClass</h2>
-  <p>Ссылка через <code>document.write()</code> внутри метода <code>show()</code>.</p>
+  <h2>Лаба 1.4</h2>
+  <p>Ссылка через <span style="color:rgb(15, 136, 169)">document.write()</span> внутри метода <span style="color:rgb(15, 136, 169)">show()</span>.</p>
 
   <script>
     class NewClass {
@@ -19,12 +19,12 @@
       }
       show() {
         document.write(
-          `<p><a href="${this.url}" target="_blank" rel="noopener">${this.title}</a></p>`
+          `<p><a href="${this.url}" target="_blank">${this.title}</a></p>`
         );
       }
     }
 
-    const link = new NewClass("ITMO — HTML5/CSS3/JS курс (demo)", "https://itmo.ru/");
+    const link = new NewClass("ЦМРТ", "https://cmrt.ru/");
     link.show();
   </script>
 </body>
