@@ -1,0 +1,100 @@
+<!-- 11.4. Практическое занятие
+Упражнение 3 -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Аудио, видео и снова embed</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+      margin:24px;
+      font:16px/1.5 system-ui,sans-serif
+    }
+    section{
+      margin:86px 0;
+      padding:12px;
+      border:1px solid #e5e7eb;
+      border-radius:10px
+    }
+    h2{
+      margin:0 0 8px;
+      font-size:18px
+    }
+    .frame{
+      width:260px;
+      height:160px;
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:8px;
+      display:grid;
+      place-items:center
+    }
+    .media{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      flex-wrap:wrap
+    }
+    video, audio, embed{
+      box-shadow:0 6px 16px rgba(0,0,0,.12);
+      border-radius:8px;
+      background:#000;
+      max-width:100%
+    }
+
+    svg {
+      width: 200px;
+      height: 200px;
+    }
+    .outer {
+      fill: rgb(103, 181, 255);
+      transition: fill 0.3s ease;
+    }
+    .inner {
+      fill: rgb(255, 46, 39);
+      transition: transform .4s ease;
+    }
+    svg:hover .outer {
+      fill: rgb(255, 118, 6);
+    }
+    svg:hover .inner {
+      fill: rgb(231, 255, 72);
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Аудио и Видео</h1>
+  <section>
+    <h2>1. audio control"</h2>
+    <p>Не понял чем отличается от object.</p>
+    <div class="media">
+      <audio controls preload="metadata">
+        <source src="medieval-irish.mp3" type="audio/mpeg">
+        <source src="medieval-irish.ogg" type="audio/ogg">
+        Ваш браузер не поддерживает аудио. Пользуйтесь нормальным!
+      </audio>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. video control</h2>
+    <p>Видосики странный, но весит мало.</p>
+      <video controls width="560" height="315" poster="poster.jpg" preload="metadata">
+        <source src="sample.mp4" type="video/mp4">
+        <source src="sample.webm" type="video/webm">
+        Ваш браузер не поддерживает видео.
+      </video>
+  </section>
+
+  <section>
+    <h2>3. Embed</h2>
+    <p>Не нашел пример flash объекта. Так что пусть побудет тут пример птички с предыдущего упражнения</p>
+    <div class="frame">
+      <embed src="logo.svg" style="max-width: 250px;"/>
+    </div>
+  </section>
+</body>
+</html>
+

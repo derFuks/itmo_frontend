@@ -1,0 +1,87 @@
+<!-- 11.4. Практическое занятие
+Упражнение 2 -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Работа с SVG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+      margin:24px;
+      font:16px/1.5 system-ui,sans-serif
+    }
+    section{
+      margin:86px 0;
+      padding:12px;
+      border:1px solid #e5e7eb;
+      border-radius:10px
+    }
+    h2{
+      margin:0 0 8px;
+      font-size:18px
+    }
+    .frame{
+      width:260px;
+      height:160px;
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:8px;
+      display:grid;
+      place-items:center
+    }
+
+    svg {
+      width: 200px;
+      height: 200px;
+    }
+    .outer {
+      fill: rgb(103, 181, 255);
+      transition: fill 0.3s ease;
+    }
+    .inner {
+      fill: rgb(255, 46, 39);
+      transition: transform .4s ease;
+    }
+    svg:hover .outer {
+      fill: rgb(255, 118, 6);
+    }
+    svg:hover .inner {
+      fill: rgb(231, 255, 72);
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Работа с SVG</h1>
+  <section>
+    <h2>1. embed src="logo.svg"</h2>
+    <p>Не понял чем отличается от object.</p>
+    <div class="frame">
+      <embed src="logo.svg" style="max-width: 250px;"/>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. object data="logo.svg"</h2>
+    <p>Могу дотянуться до элементов SVG и менять.</p>
+    <div class="frame">
+      <object data="logo.svg" width="220" height="120">
+        Ваш браузер не поддерживает объект SVG.
+      </object>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Встроенный inline svg</h2>
+    <p>SVG-код нужно прямо в HTML встраивать</p>
+    <div class="frame">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="лого круги">
+        <circle class="outer" cx="100" cy="100" r="40" />
+        <circle class="inner" cx="100" cy="100" r="20" />
+      </svg>
+    </div>
+  </section>
+</body>
+</html>
+
