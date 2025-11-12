@@ -1,0 +1,86 @@
+<!-- 11.3. Практическое занятие
+Упражнение 3 -->
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" http-equiv="Content-Type">
+  <title>Блок с тенью и изображением моего яблока</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      font-family: system-ui, sans-serif;
+      height: 100vh;
+      background: #fff;
+    }
+    .container {
+      display: flow-root;
+      width: min(720px);
+      margin: 0 auto;
+    }
+    .image-box {
+      width: 263px;
+      height: 364px;
+      background: #ede0e0;
+      margin: 40px;
+      padding: 10px;
+      box-shadow: 0px 40px 13px -30px rgba(34, 60, 80, 0.4);
+      border-radius: 12px;       /* красота */
+      border: 1px solid rgba(132, 153, 171, 0.3);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      transition: transform .2s ease; /* а чтобы не попробовать сразу и транзишенов накидать? */
+    }
+
+    .image-box:hover {
+      transform: scale(1.2);
+    }
+    
+    .image-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;         /* вписываем картинку */
+      display: block;
+    }
+    .reference{
+      width: 456px;
+      height: 316px;
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 160px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Блок с тенью и изображением именно моего яблока</h1>
+    <p>Скругленная рамка есть. Есть и padding до изображения. Тень оформил близко к рефу, но так и не смог добиться закругления. Мне стоит положить объект под контейнер круглой формы и ему нарисовать тень?</p>
+  
+    <div class="image-box">
+      <img src="apple.png" alt="яблоко">
+    </div>
+  </div>
+
+  <div class="container">
+    <p>Ниже референс из задачи</p>
+    <div class="reference">
+      <img src="ref_apple.png" alt="яблоко референсное">
+    </div>
+  </div>
+
+  <script>
+    // баловство с IIFE
+    (function () {
+      const box = document.querySelector('.image-box');
+      if (box) {
+        console.log('Блок с тенью успешно инициализирован');
+      }
+    })();
+  </script>
+
+</body>
+</html>
