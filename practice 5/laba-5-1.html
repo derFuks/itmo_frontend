@@ -30,12 +30,138 @@
       display:grid;
       place-items:center
     }
+    .form{
+      max-width:420px;
+      margin:auto;
+      padding:16px;
+      border:1px solid #e5e7eb;
+      border-radius:10px
+    }
+    .row{
+      margin:10px 0
+    }
+    label{
+      display:block;
+      margin-bottom:6px;
+      font-weight:600
+    }
 
+    input{
+      width:100%;
+      box-sizing:border-box;
+      padding:10px;
+      border:1px solid #d1d5db;
+      border-radius:8px;
+      font:inherit
+    }
+    .icon img{
+      width:24px;
+      height:24px;
+      display:block
+    }
+    .hint{
+      font-size:.8rem;
+      color:#6b7280;
+      margin-top:4px
+    }
+    .marks{
+      font-weight:700;
+      margin-left:6px
+    }
+    .req{
+      color:#ef4444
+    }
+    .opt{
+      color:#16a34a
+    }
+    .inline{
+      display:flex;
+      align-items:center;
+      gap:10px
+    }
+    .actions{
+      display:flex;
+      gap:8px;
+      margin-top:12px
+    }
+    button{
+      padding:10px 14px;
+      border:1px solid #d1d5db;
+      border-radius:8px;
+      background:#111827;
+      color:#fff;
+      cursor:pointer
+    }
+    
   </style>
 </head>
 <body>
   <h1>Web-формы</h1>
+  <form id="sendform" class="form" novalidate>
+    <h2 style="margin:0 0 12px">Пожалуйста, заполните обязательные поля, отмеченные <span class="marks req">*</span>.</h2>
 
+    <div class="row">
+      <label for="name">Имя <span class="marks opt">✔</span></label>
+      <input id="name" name="name" type="text" placeholder="Анна">
+    </div>
+
+    <div class="row">
+      <label for="age">Возраст <span class="marks opt">✔</span></label>
+      <input id="age" name="age" type="number" min="0" max="120" step="1" placeholder="27">
+    </div>
+
+    <div class="row">
+      <label for="email" class="inline">
+        <span>E-mail<span class="marks req">*</span></span>
+        <span class="icon"><img id="emailIcon" src="no.png" alt="Состояние"></span>
+      </label>
+      <input id="email" name="email" type="email" required placeholder="name@example.com" autocomplete="email">
+      <div class="hint" id="emailHint">Укажите корректный адрес с «@».</div>
+    </div>
+
+    <div class="row">
+      <label for="site">Сайт <span class="marks opt">✔</span></label>
+      <input id="site" name="site" type="url" placeholder="https://gosuslugi.ru" inputmode="url">
+    </div>
+
+    <div class="actions">
+      <button type="submit">Отправить</button>
+    </div>
+  </form>
+
+  <script> // валидация email + переключение yes/no
+    (function () {
+      const form = document.getElementById('sendform');
+      const email = document.getElementById('email');
+      const emailIcon = document.getElementById('emailIcon');
+      const emailHint = document.getElementById('emailHint');
+
+      function updateEmailState() {
+        const ok = email.value.trim() !== '' && email.checkValidity();
+        emailIcon.src = ok ? 'yes.png' : 'no.png';
+        emailIcon.alt = ok ? 'Корректно' : 'Некорректно';
+        emailHint.style.color = ok ? '#16a34a' : '#dc2626';
+      }
+
+      email.addEventListener('input', updateEmailState);
+      email.addEventListener('blur', updateEmailState);
+
+      form.addEventListener('submit', (e) => {
+        updateEmailState();
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          const firstInvalid = form.querySelector(':invalid');
+          if (firstInvalid) firstInvalid.focus();
+        } else {
+          e.preventDefault(); //чтобы страница не обновилась
+          alert("Информация отправлена успешно!");
+          form.reset();
+        }
+      });
+
+      updateEmailState();
+    })();
+  </script>
 </body>
 </html>
 
