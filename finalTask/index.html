@@ -1,1 +1,223 @@
 <!-- Финальное задание -->
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Травматологи и неврологи — запись к врачу</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="task-notice">
+        <span class="task-notice__strong">Задание на зачет, пункт 1:</span> демо HTML5 (разметка, формы, WebStorage,
+        SVG, &lt;video&gt;) + CSS3 + Js.
+    </div>
+
+<!-- не получается на локальном работать с подключением других html файлов
+ <div data-include="header"></div> -->
+
+    <header class="site-header">
+        <div class="site-header__inner">
+            <div class="logo-block">
+                <object data="media/logo.svg" type="image/svg+xml" width="31" height="35">
+                    <img src="media/logo.png" alt="Логотип клиники">
+                </object>
+                <span class="logo-block__text">Врачи & Co.</span>
+            </div>
+
+            <nav class="main-nav js-main-nav">
+                <ul class="main-nav__list">
+                    <li><a class="main-nav__link" href="index.html">Главная</a></li>
+                    <li><a class="main-nav__link" href="doctors.html">Врачи</a></li>
+                    <li><a class="main-nav__link" href="booking.html">Записаться</a></li>
+                    <li><a class="main-nav__link" href="media.html">Материалы</a></li>
+                    <li><a class="main-nav__link" href="browsers.html">Кроссбраузерность</a></li>
+                </ul>
+            </nav>
+
+            <button class="burger js-burger" type="button" aria-label="Меню">
+                <span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        <section class="primary-block">
+            <div>
+                <h1 class="primary-block__title">Справочник врачей в одном месте.</h1>
+                <p class="primary-block__text">
+                    Сайт показывает исключительно выдуманный контент. Любые совпадения — случайны! Для записи к врачу не
+                    собирал ничего на бэке.
+                </p>
+                <p class="primary-block__tagline">
+                    Разметка, формы, WebStorage, SVG, видео — все минимально необходимые элементы по заданию.
+                </p>
+                <a href="doctors.html" class="btn btn-line">Посмотреть всех врачей</a>
+            </div>
+            <aside>
+                <h2 class="section-box__title">Демонстрация WebStorage</h2>
+                <p class="primary-block__text">
+                    Ниже то, как сохраняю дату последнего посещения сайта в <code>localStorage</code>, а информацию о
+                    текущей сессии — в <code>sessionStorage</code>.
+                </p>
+                <div class="storage-demo js-storage-info">
+                    (WebStorage: информация будет показана после загрузки скрипта, жди...)
+                </div>
+            </aside>
+        </section>
+
+        <section class="section-box">
+            <h2 class="section-box__title">Для кого этот сайт нужен?</h2>
+            <article>
+                <p>
+                    Это демо проект по курсу разработка Web-приложений на HTML5 CSS3 и JavaScript. <br> На примере
+                    травматологов и неврологов показываю:
+                </p>
+                <ul>
+                    <li>верстку шапки и меню с использованием <code>header</code> и <code>&lt;nav&gt;</code>.</li>
+                    <li>Формы отправки заявки на запись с элементами: дата, e-mail, телефон и т.д.</li>
+                    <li>Хранение данных о записи с помощью WebStorage. В БД для диплома переделаю запись.</li>
+                    <li>SVG-логотип и видео через тег <code>video</code>.</li>
+                    <li>Гораздо больше элементов CSS3, чем нужно по заданию: flex, transitions, border-radius и адаптив
+                        через медиа-запросы.</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Для формы сделаю потом и отдельную страницу -->
+        <section class="section-box">
+            <h2 class="section-box__title">Заявка на запись к врачу онлайн</h2>
+            <p>
+                Форма ниже записывает данные в <strong>sessionStorage</strong>. При успешной отправке должно появиться
+                сообщение об успехе, иначе смотри консоль.
+            </p>
+            <p>
+                Я не делал обработки задаваемых пользователем значений в формах. Осознанно. На дипломе сделаю.
+            </p>
+            <p></p>
+
+            <form class="js-booking-form" novalidate>
+                <div class="form-grid">
+                    <div class="form-row">
+                        <label class="form-label" for="patientName-main">Ваше имя (просто text)</label>
+                        <input class="form-input" type="text" id="patientName-main" name="patientName"
+                            placeholder="Имя и фамилия">
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="patientPhone-main">Телефон (type="tel")</label>
+                        <input class="form-input" type="tel" id="patientPhone-main" name="patientPhone"
+                            placeholder="+7(___) ___-__-__">
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="patientEmail-main">E-mail (type="email")</label>
+                        <input class="form-input" type="email" id="patientEmail-main" name="patientEmail"
+                            placeholder="pochta@mail.ru">
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="patientAge-main">Возраст (type="number")</label>
+                        <input class="form-input" type="number" id="patientAge-main" name="patientAge" min="1" max="110"
+                            step="1" value="45">
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="visitDate-main">Желаемая дата визита (type="date")</label>
+                        <input class="form-input" type="date" id="visitDate-main" name="visitDate">
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="doctorId-main">Выбор врача (select + datalist по
+                            специальности)</label>
+                        <select class="form-select" id="doctorId-main" name="doctorId" data-doctors-select>
+                            <option value="">Выберите врача...</option>
+                            <!-- список через JS подтянуть -->
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="specialty-main">Предпочитаемая специализация (datalist)</label>
+                        <input class="form-input" list="specialty-list" id="specialty-main" name="specialty">
+                        <datalist id="specialty-list">
+                            <option value="Травматолог"></option>
+                            <option value="Невролог"></option>
+                            <option value="Ревматолог"></option>
+                            <option value="Не знаю, нужна консультация"></option>
+                        </datalist>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="painLevel-main">Уровень боли (range)</label>
+                        <input class="form-input" type="range" id="painLevel-main" name="painLevel" min="0" max="10"
+                            value="5">
+                    </div>
+
+                    <div class="form-row" style="grid-column: 1 / -1;">
+                        <label class="form-label" for="comment-main">Комментарий к поводу обращения</label>
+                        <textarea class="form-textarea" id="comment-main" name="comment"
+                            placeholder="Кратко опишите жалобы"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <button class="btn btn-line" type="submit">Записаться</button>
+                    <p class="status js-form-status"></p>
+                </div>
+            </form>
+
+            <div class="storage-demo">
+                При ошибках валидации сообщения выводятся в <code>console.error</code>. Сами данные не отправляются ни
+                на сервер, ни в файл. Только записываются в sessionStorage.
+            </div>
+        </section>
+
+        <!-- Видосики -->
+        <section class="video-wrap">
+            <h2 class="section-box__title">Обучающие видео для пациентов</h2>
+            <p class="primary-block__text">
+                Ниже подключены два видеофайла с использованием тега <code>video</code>. <br>Для старых браузеров
+                добавлены варианты в формате <code>webm</code>. Признаюсь, не стал все видео конвертить, чтобы гитхаб не
+                захламлять.
+            </p>
+
+            <div class="video-grid">
+                <figure>
+                    <video controls preload="none">
+                        <source src="media/doc_video.mp4" type="video/mp4">
+                        <source src="media/doc_video.webm" type="video/webm">
+                        Ваш браузер не поддерживает видео. Используйте нормальный.
+                    </video>
+                    <figcaption>Видео 1. Ведущий врач.</figcaption>
+                </figure>
+
+                <figure>
+                    <video controls preload="none">
+                        <source src="media/doc_video2.mp4" type="video/mp4">
+                        <source src="media/doc_video.webm" type="video/webm">
+                        Ваш браузер не поддерживает видео. Используйте нормальный.
+                    </video>
+                    <figcaption>Видео 2. Главный врач.</figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+
+    <!-- не получается и футер подключить из файла.
+ <div data-include="footer"></div> -->
+    <footer class="site-footer">
+        <p>Зачетный сайт по HTML5/CSS3/JavaScript. Тема: травматологи и неврологи.</p>
+        <p>Данные о врачах и кабинетах являются вымыслом. Этот бред занесен в справочник в папке <code>/data</code>.</p>
+    </footer>
+
+
+    <script src="js/include.js"></script>
+    <script src="data/doctors-data.js"></script>
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>
