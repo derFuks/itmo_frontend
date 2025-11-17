@@ -83,6 +83,11 @@ a:hover {
     font-family: monospace;
 }
 
+.snake-inflate:hover{
+    transform: rotate(60deg);
+    transition: transform .8s ease;
+}
+
 .main-nav {
     display: flex;
     align-items: center;
@@ -412,8 +417,8 @@ a:hover {
 
 .storage-demo {
     margin-top: 10px;
-    font-size: 0.8rem;
-    color: var(--text-muted);
+    font-size: 0.9rem;
+    color: #037300;
 }
 
 .cross-table {
@@ -432,7 +437,30 @@ a:hover {
     background: #f5f5f5;
 }
 
-
+.frame{
+    width:260px;
+    height:160px;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:8px;
+    display:grid;
+    place-items:center
+}
+.outer {
+    fill: rgb(103, 181, 255);
+    transition: fill 0.3s ease;
+}
+.inner {
+    fill: rgb(255, 46, 39);
+    transition: transform .4s ease;
+}
+svg:hover .outer {
+    fill: rgb(255, 118, 6);
+}
+svg:hover .inner {
+    fill: rgb(231, 255, 72);
+    transform: scale(1.2);
+}
 
 @media (max-width: 768px) {
     .primary-block {

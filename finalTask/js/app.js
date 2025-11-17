@@ -36,7 +36,7 @@
       infoBlock.textContent =
         'Из localStorage время lastVisit = ' +
         (lastVisit || 'нет данных') +
-        ', из sessionStorage флаг sessionStarted = ' +
+        '; из sessionStorage тяну флаг sessionStarted = ' +
         (sessionFlag || 'нет данных');
     }
   }());
