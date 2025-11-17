@@ -1,0 +1,176 @@
+<!-- 11.5. Практическое занятие
+Упражнение 2 и 3 -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Web Storage API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+      margin:24px;
+      font:16px/1.5 system-ui,sans-serif;
+    }
+    section{
+      margin:86px 0;
+      padding:12px;
+      border:1px solid #e5e7eb;
+      border-radius:10px
+    }
+    h2{
+      margin:0 0 8px;
+      font-size:18px;
+    }
+    .frame{
+      width:260px;
+      height:160px;
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:8px;
+      display:grid;
+      place-items:center;
+    }
+    .form{
+      max-width:420px;
+      margin:auto;
+      padding:16px;
+      border:1px solid #e5e7eb;
+      border-radius:10px
+    }
+    .row{
+      margin:10px 0
+    }
+    label{
+      display:block;
+      margin-bottom:6px;
+      font-weight:600
+    }
+
+    input{
+      width:100%;
+      box-sizing:border-box;
+      padding:10px;
+      border:1px solid #d1d5db;
+      border-radius:8px;
+      font:inherit;
+      margin-bottom: 5px;
+    }
+    .icon img{
+      width:24px;
+      height:24px;
+      display:block
+    }
+    .hint{
+      font-size:.8rem;
+      color:#6b7280;
+      margin-top:4px;
+    }
+    .marks{
+      font-weight:700;
+      margin-left:6px
+    }
+    .req{
+      color:#ef4444;
+    }
+    .opt{
+      color:#16a34a;
+    }
+    .inline{
+      display:flex;
+      align-items:center;
+      gap:10px
+    }
+    .actions{
+      display:flex;
+      gap:8px;
+      margin-top:12px;
+    }
+    button{
+      padding:10px 14px;
+      border:1px solid #d1d5db;
+      border-radius:8px;
+      background:#111827;
+      color:#fff;
+      cursor:pointer;
+    }    
+  </style>
+</head>
+
+<body>
+  <h1>Web Storage API</h1>
+  <div class="card">
+    <div class="row">
+      <input type="text" name="name" id="name" placeholder="Имя (например Бориска)">
+      <input type="tel"  name="phone" id="phone" placeholder="Телефон (например +71239876543)">
+      <button id="addBtn">Записать</button>
+      <button id="clearBtn" class="secondary">Очистить все</button>
+    </div>
+    <br>
+    <p class="muted" style="margin-top: 12px">
+      Данные пишу сразу в <code>localStorage</code> и в <code>sessionStorage</code>.
+      <br>
+      Проверок никаких не делаю кроме проверки на пустоту значений при отправке.
+    </p>
+  </div>
+
+  <script>
+    (function () {
+      const PREFIX = 'spbitmo:html5course';
+      const LS_KEY = PREFIX + ':phonebook:local';
+      const SS_KEY = PREFIX + ':phonebook:sesion';
+
+      const $name = document.getElementById('name');
+      const $phone = document.getElementById('phone');
+      const $addBtn = document.getElementById('addBtn');
+      const $clear = document.getElementById('clearBtn');
+
+      function loadFromLocal() {
+        try {
+          return JSON.parse(localStorage.getItem(LS_KEY) || '[]');
+        } catch (_) {
+          return [];
+        }
+      }
+      function saveToLocal(arr) {
+        localStorage.setItem(LS_KEY, JSON.stringify(arr));
+        sessionStorage.setItem(SS_KEY, JSON.stringify(arr));
+      }
+
+      // круд
+      function addEntrydata(name, phone) {
+        const list = loadFromLocal();
+        const id = Date.now(); // генерим id
+        list.push({ id, name: name.trim(), phone: phone.trim() });
+        saveToLocal(list);
+      }
+
+      function clearAll() {
+        saveToLocal([]);
+      }
+
+
+
+
+      $addBtn.addEventListener('click', () => {
+        const name = $name.value;
+        const phone = $phone.value;
+        if (!name.trim() && !phone.trim()) {
+          alert('Заполните имя или телефон');
+          return;
+        }
+        addEntrydata(name, phone);
+        $name.value = '';
+        $phone.value = '';
+        $name.focus();
+      });
+
+      $clear.addEventListener('click', clearAll);
+
+      // Инициализация
+      if (localStorage.getItem(LS_KEY) == null) saveToLocal([]);
+      if (sessionStorage.getItem(SS_KEY) == null) sessionStorage.setItem(SS_KEY, localStorage.getItem(LS_KEY) || '[]');
+    })();
+  </script>
+</body>
+</html>
+
