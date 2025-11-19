@@ -1,1 +1,93 @@
 <!-- Финальное задание -->
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Видео для пациентов</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="task-notice">
+        <span class="task-notice__strong">Пункты 1.5 и 1.6:</span> использование SVG и тега video.
+    </div>
+
+    <header class="site-header">
+        <div class="site-header__inner">
+            <div class="logo-block">
+                <object data="media/logo.svg" type="image/svg+xml" width="31" height="35">
+                    <img src="media/logo.png" alt="Логотип клиники">
+                </object>
+                <span class="logo-block__text">Врачи & Co.</span>
+            </div>
+
+            <nav class="main-nav js-main-nav">
+                <ul class="main-nav__list">
+                    <li><a class="main-nav__link" href="index.html">Главная</a></li>
+                    <li><a class="main-nav__link" href="doctors.html">Врачи</a></li>
+                    <li><a class="main-nav__link" href="booking.html">Записаться</a></li>
+                    <li><a class="main-nav__link" href="media.html">Материалы</a></li>
+                    <li><a class="main-nav__link" href="browsers.html">Кроссбраузерность</a></li>
+                </ul>
+            </nav>
+
+            <button class="burger js-burger" type="button" aria-label="Меню">
+                <span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        <section class="section-box">
+            <h1 class="section-box__title">Медиа материалы</h1>
+            <p>Здесь еще раз показыаю использование SVG и видео. Да, знаю, что не использовал превьюхи для видео и не закрепил высоту окна до запуска ведео. Думаю не страшно.</p>
+        </section>
+
+        <section class="section-box">
+            <h2 class="section-box__title">SVG</h2>
+            <p>SVG-версия логотипа подключается через тег <code>object</code>:</p>
+            <object data="media/logo.svg" type="image/svg+xml" width="31" height="35">
+                <img src="media/logo.png" alt="Логотип клиники">
+            </object>
+        </section>
+
+        <section class="video-wrap">
+            <h2 class="section-box__title">Видео по травматологии и неврологии</h2>
+            <div class="video-grid">
+                <figure>
+                    <video controls preload="none">
+                        <source src="media/doc_video.mp4" type="video/mp4">
+                        <source src="media/doc_video.webm" type="video/webm">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                    <figcaption>Видео по подготовке к приёму у травматолога.</figcaption>
+                </figure>
+
+                <figure>
+                    <video controls preload="none">
+                        <source src="media/doc_video2.mp4" type="video/mp4">
+                        <source src="media/doc_video2.webm" type="video/webm">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                    <figcaption>Видео по упражнениям для позвоночника.</figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+
+    <!-- не получается и футер подключить из файла.
+<div data-include="footer"></div> -->
+    <footer class="site-footer">
+        <p>Зачетный сайт по HTML5/CSS3/JavaScript. Тема: травматологи и неврологи.</p>
+        <p>Данные о врачах и кабинетах являются вымыслом. Этот бред занесен в справочник в папке <code>/data</code>.</p>
+    </footer>
+
+
+    <script src="js/include.js"></script>
+    <script src="data/doctors-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

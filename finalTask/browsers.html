@@ -1,1 +1,130 @@
 <!-- Финальное задание -->
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Запись к врачу онлайн</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="task-notice">
+        <span class="task-notice__strong">Пункт 1.3 и 1.4:</span>
+        демка HTML5-элементов формы и работы с WebStorage (sessionStorage).
+    </div>
+
+    <header class="site-header">
+        <div class="site-header__inner">
+            <div class="logo-block">
+                <object data="media/logo.svg" type="image/svg+xml" width="31" height="35">
+                    <img src="media/logo.png" alt="Логотип клиники">
+                </object>
+                <span class="logo-block__text">Врачи & Co.</span>
+            </div>
+
+            <nav class="main-nav js-main-nav">
+                <ul class="main-nav__list">
+                    <li><a class="main-nav__link" href="index.html">Главная</a></li>
+                    <li><a class="main-nav__link" href="doctors.html">Врачи</a></li>
+                    <li><a class="main-nav__link" href="booking.html">Записаться</a></li>
+                    <li><a class="main-nav__link" href="media.html">Материалы</a></li>
+                    <li><a class="main-nav__link" href="browsers.html">Кроссбраузерность</a></li>
+                </ul>
+            </nav>
+
+            <button class="burger js-burger" type="button" aria-label="Меню">
+                <span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        <section class="section-box">
+            <h1 class="section-box__title">Кроссбраузерность и выводы</h1>
+            <p>Довольно ленивая проверка работы страниц в разных браузерах и выводы о кроссбраузерности.</p>
+
+      <table class="cross-table">
+        <thead>
+          <tr>
+            <th>Функция</th>
+            <th>Chrome (актуальный)</th>
+            <th>Firefox (актуальный)</th>
+            <th>Safari</th>
+            <th>Проклятый IE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Разметка HTML5</td>
+            <td>OK</td>
+            <td>OK</td>
+            <td>OK</td>
+            <td>Частично</td>
+          </tr>
+          <tr>
+            <td>Новые типы инпутов (date, email, tel, range, number)</td>
+            <td>OK</td>
+            <td>OK</td>
+            <td>OK</td>
+            <td>Отображаются как обычный text, но не ломают форму</td>
+          </tr>
+          <tr>
+            <td>WebStorage (localStorage / sessionStorage)</td>
+            <td>OK</td>
+            <td>OK</td>
+            <td>OK</td>
+            <td>ОК</td>
+          </tr>
+          <tr>
+            <td>SVG</td>
+            <td>OK</td>
+            <td>OK</td>
+            <td>OK</td>
+            <td>PNG показал</td>
+          </tr>
+          <tr>
+            <td>Видео (MP4/WebM)</td>
+            <td>OK</td>
+            <td>OK</td>
+            <td>OK</td>
+            <td>OK</td>
+          </tr>
+          <tr>
+            <td>CSS3 (flex, transitions, border-radius, media queries)</td>
+            <td>OK</td>
+            <td>OK</td>
+            <td>OK</td>
+            <td>Есть отличия в оформлении</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section-box">
+      <h2 class="section-box__title">Выводы</h2>
+      <ul>
+        <li>Сайт остается читаемым в проверенных браузерах.</li>
+        <li>Новые элементы форм HTML5 в старых браузерах как текстовые поля отобразились.</li>
+        <li>WebStorage работает при из-за проверок try/catch</li>
+        <li>SVG и видео дублируются PNG и WEBM на всякий случай.</li>
+      </ul>
+            
+        </section>
+    </main>
+
+    <!-- не получается и футер подключить из файла.
+<div data-include="footer"></div> -->
+    <footer class="site-footer">
+        <p>Зачетный сайт по HTML5/CSS3/JavaScript. Тема: травматологи и неврологи.</p>
+        <p>Данные о врачах и кабинетах являются вымыслом. Этот бред занесен в справочник в папке <code>/data</code>.</p>
+    </footer>
+
+
+    <script src="js/include.js"></script>
+    <script src="data/doctors-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

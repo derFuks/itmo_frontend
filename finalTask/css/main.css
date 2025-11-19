@@ -284,7 +284,7 @@ a:hover {
     height: 80px;
     border-radius: 999px;
     object-fit: cover;
-    border: 2px solid #000;
+    border: 1px solid #000;
 }
 
 .doctor-card__body {
@@ -460,6 +460,27 @@ svg:hover .outer {
 svg:hover .inner {
     fill: rgb(231, 255, 72);
     transform: scale(1.2);
+}
+
+.rainbow{
+    font-weight: 700;
+    color: #222;
+    background: linear-gradient(60deg,red, orange,yellow,green,rgb(0, 250, 245), rgb(48, 16, 255), violet, rgb(255, 0, 136),red, orange);
+    background-size: 400% 100%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: rainbow-move 7s linear infinite;
+}
+@keyframes rainbow-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 @media (max-width: 768px) {

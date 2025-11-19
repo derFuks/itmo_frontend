@@ -1,1 +1,134 @@
 <!-- Финальное задание -->
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Запись к врачу онлайн</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="task-notice">
+        <span class="task-notice__strong">Пункт 1.3 и 1.4:</span>
+        демка HTML5-элементов формы и работы с WebStorage (sessionStorage).
+    </div>
+
+    <header class="site-header">
+        <div class="site-header__inner">
+            <div class="logo-block">
+                <object data="media/logo.svg" type="image/svg+xml" width="31" height="35">
+                    <img src="media/logo.png" alt="Логотип клиники">
+                </object>
+                <span class="logo-block__text">Врачи & Co.</span>
+            </div>
+
+            <nav class="main-nav js-main-nav">
+                <ul class="main-nav__list">
+                    <li><a class="main-nav__link" href="index.html">Главная</a></li>
+                    <li><a class="main-nav__link" href="doctors.html">Врачи</a></li>
+                    <li><a class="main-nav__link" href="booking.html">Записаться</a></li>
+                    <li><a class="main-nav__link" href="media.html">Материалы</a></li>
+                    <li><a class="main-nav__link" href="browsers.html">Кроссбраузерность</a></li>
+                </ul>
+            </nav>
+
+            <button class="burger js-burger" type="button" aria-label="Меню">
+                <span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        <section class="section-box">
+            <h1 class="section-box__title">Форма записи на приём</h1>
+            <p>Эта форма тоже пишет данные в <strong>sessionStorage</strong> с префиксом
+                <code>spbitmo:html5course</code>.</p>
+            <form class="js-booking-form" novalidate>
+                <div class="form-grid">
+                    <div class="form-row">
+                        <label class="form-label" for="patientName-main">Ваше имя (просто text)</label>
+                        <input class="form-input" type="text" id="patientName-main" name="patientName"
+                            placeholder="Имя и фамилия">
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="patientPhone-main">Телефон (type="tel")</label>
+                        <input class="form-input" type="tel" id="patientPhone-main" name="patientPhone"
+                            placeholder="+7(___) ___-__-__">
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="patientEmail-main">E-mail (type="email")</label>
+                        <input class="form-input" type="email" id="patientEmail-main" name="patientEmail"
+                            placeholder="pochta@mail.ru">
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="patientAge-main">Возраст (type="number")</label>
+                        <input class="form-input" type="number" id="patientAge-main" name="patientAge" min="1" max="110"
+                            step="1" value="45">
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="visitDate-main">Желаемая дата визита (type="date")</label>
+                        <input class="form-input" type="date" id="visitDate-main" name="visitDate">
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="doctorId-main">Выбор врача (select + datalist по
+                            специальности)</label>
+                        <select class="form-select" id="doctorId-main" name="doctorId" data-doctors-select>
+                            <option value="">Выберите врача...</option>
+                            <!-- список через JS подтянуть -->
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="specialty-main">Предпочитаемая специализация (datalist)</label>
+                        <input class="form-input" list="specialty-list" id="specialty-main" name="specialty">
+                        <datalist id="specialty-list">
+                            <option value="Травматолог"></option>
+                            <option value="Невролог"></option>
+                            <option value="Ревматолог"></option>
+                            <option value="Не знаю, нужна консультация"></option>
+                        </datalist>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="painLevel-main">Уровень боли (range)</label>
+                        <input class="form-input" type="range" id="painLevel-main" name="painLevel" min="0" max="10"
+                            value="5">
+                    </div>
+
+                    <div class="form-row" style="grid-column: 1 / -1;">
+                        <label class="form-label" for="comment-main">Комментарий к поводу обращения</label>
+                        <textarea class="form-textarea" id="comment-main" name="comment"
+                            placeholder="Кратко опишите жалобы"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <button class="btn btn-line" type="submit">Записаться</button>
+                    <p class="status js-form-status"></p>
+                </div>
+            </form>
+
+        </section>
+    </main>
+
+    <!-- не получается и футер подключить из файла.
+<div data-include="footer"></div> -->
+    <footer class="site-footer">
+        <p>Зачетный сайт по HTML5/CSS3/JavaScript. Тема: травматологи и неврологи.</p>
+        <p>Данные о врачах и кабинетах являются вымыслом. Этот бред занесен в справочник в папке <code>/data</code>.</p>
+    </footer>
+
+
+    <script src="js/include.js"></script>
+    <script src="data/doctors-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

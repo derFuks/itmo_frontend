@@ -189,7 +189,7 @@
     });
   }());
 
-  // Вывод списка врачей на странице doctors
+  // Вывод врачей на странице doctors
   (function renderDoctorsList() {
     const container = document.querySelector('.js-doctors-list');
     if (!container || !window.doctorsList || !window.roomsList || !window.specialtiesList) {
